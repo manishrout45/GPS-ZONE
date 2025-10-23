@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS Zone Wholesale - GPS Tracking Devices for Service Providers</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        // Tailwind Configuration for custom fonts and colors
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'gps-blue': '#007bff',
+                        'gps-dark': '#1a202c',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom styles for smooth scrolling and transitions */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gps-dark">GPS<span class="text-gps-blue">Zone</span></a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="/products.html" class="text-gray-600 hover:text-gps-blue transition">Products</a>
+                <a href="#why-us" class="text-gray-600 hover:text-gps-blue transition">Why Us</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-gps-blue transition">Testimonials</a>
+                <a href="#contact" class="bg-gps-blue text-white px-5 py-2 rounded-md hover:bg-blue-700 transition">Get Quote</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-6 pt-2 pb-3 space-y-1">
+                <a href="/products.html" class="block py-2 text-gray-600 hover:text-gps-blue">Products</a>
+                <a href="#why-us" class="block py-2 text-gray-600 hover:text-gps-blue">Why Us</a>
+                <a href="#testimonials" class="block py-2 text-gray-600 hover:text-gps-blue">Testimonials</a>
+                <a href="#contact" class="block py-2 text-gps-blue font-semibold">Get Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');">
+            <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+            <div class="relative container mx-auto px-6 py-24 text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+                    Welcome to GPS Zone
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
+                   Your Trusted Vehicle Technology Partner
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact" class="bg-gps-blue text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition transform hover:scale-105">Get Your Wholesale Quote</a>
+                    <a href="/products.html" class="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-lg hover:bg-white hover:text-black transition">View Product Catalog</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof Bar -->
+        <section class="py-6 bg-gray-100 border-b">
+            <div class="container mx-auto px-6 text-center">
+                <p class="text-gray-600 font-semibold mb-2">We specialize in GPS tracking, vehicle security, and smart car technology offering advanced solutions for</p>
+                <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8 text-gray-500">
+                    <span class="font-medium">your cars</span>
+                    <span class="font-medium">bikes</span>
+                    <span class="font-medium">commercial fleets</span>
+                    <span class="font-medium">Bus &</span>
+                    <span class="font-medium">trucks</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem / Solution Section -->
+        <section class="py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Stop Letting Supplier Costs Limit Your Growth</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
+                        <h3 class="text-2xl font-bold text-red-700 mb-4">The Old Way</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start"><span class="text-red-500 mr-2">&times;</span> High retail prices eat into your profits.</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">&times;</span> Unreliable devices lead to customer complaints.</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">&times;</span> Generic support that doesn't understand B2B needs.</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">&times;</span> Limited product selection restricts your service offerings.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                        <h3 class="text-2xl font-bold text-green-700 mb-4">The GPS Zone Way</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start"><span class="text-green-500 mr-2">&#10003;</span> <strong>Direct Wholesale Pricing:</strong> Maximize your margins.</li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2">&#10003;</span> <strong>Rigorously Tested Hardware:</strong> Built for 24/7 operation.</li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2">&#10003;</span> <strong>Dedicated Partner Support:</strong> We help you succeed.</li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2">&#10003;</span> <strong>A Complete Ecosystem:</strong> A device for every need.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Showcase -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">A Complete Range of GPS Devices for Every Need</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Product 1 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1603732551681-2e91159b9dc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Vehicle Tracker" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">VT400 Pro Vehicle Tracker</h3>
+                            <p class="text-gray-600 mb-4">Our best-seller for fleet management, car leasing, and insurance telematics.</p>
+                            <ul class="text-sm text-gray-700 mb-4 space-y-1">
+                                <li>&#8226; Real-time 4G LTE Tracking</li>
+                                <li>&#8226; Remote Engine Cut-off</li>
+                                <li>&#8226; Harsh Driving Alerts</li>
+                            </ul>
+                            <span class="inline-block bg-gps-blue text-white text-xs font-semibold px-3 py-1 rounded-full">Ideal for: Cars, Trucks, Vans</span>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Asset Tracker" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">AT1000 Magnetic Asset Tracker</h3>
+                            <p class="text-gray-600 mb-4">Track anything, anywhere. With a 5-year battery life and magnetic mount.</p>
+                            <ul class="text-sm text-gray-700 mb-4 space-y-1">
+                                <li>&#8226; Ultra-Long Battery Life (5 Years)</li>
+                                <li>&#8226; IP67 Waterproof & Rugged</li>
+                                <li>&#8226; Strong Magnetic Mount</li>
+                            </ul>
+                            <span class="inline-block bg-gps-blue text-white text-xs font-semibold px-3 py-1 rounded-full">Ideal for: Containers, Trailers, Equipment</span>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Personal Tracker" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">PT50 Mini Personal Tracker</h3>
+                            <p class="text-gray-600 mb-4">Compact, discreet, and powerful. Designed for lone worker safety and security.</p>
+                            <ul class="text-sm text-gray-700 mb-4 space-y-1">
+                                <li>&#8226; Panic Button (SOS)</li>
+                                <li>&#8226; 2-Way Voice Communication</li>
+                                <li>&#8226; 30-Day Battery Life</li>
+                            </ul>
+                            <span class="inline-block bg-gps-blue text-white text-xs font-semibold px-3 py-1 rounded-full">Ideal for: Lone Workers, Valuables</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-10">
+                    <a href="#contact" class="bg-gps-dark text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-800 transition">View Full Catalog & Tech Specs</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section id="why-us" class="py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">More Than Just Hardware. We're Your Growth Partner.</h2>
+                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">We provide the tools and support you need to build a successful and profitable GPS service.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="bg-gps-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Unbeatable Wholesale Pricing</h3>
+                        <p class="text-gray-600">Direct-from-manufacturer pricing that significantly boosts your profit margins.</p>
+                    </div>
+                    <div>
+                        <div class="bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Proven Reliability</h3>
+                        <p class="text-gray-600">All our devices are rigorously tested for durability, accuracy, and network stability.</p>
+                    </div>
+                    <div>
+                        <div class="bg-purple-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">White-Label Ready</h3>
+                        <p class="text-gray-600">Offer our devices under your own brand. We provide the hardware, you build the empire.</p>
+                    </div>
+                    <div>
+                        <div class="bg-yellow-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Dedicated Partner Support</h3>
+                        <p class="text-gray-600">Our expert technical team is here to help you with integration, deployment, and troubleshooting.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Hear From Our Successful Partners</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <blockquote class="bg-white p-6 rounded-lg shadow-lg">
+                        <p class="text-gray-700 mb-4 italic">"Switching to GPS Zone for our hardware was a game-changer. The wholesale prices allowed us to offer more competitive packages, and the reliability of the VT400 has cut our support tickets in half. A true partner."</p>
+                        <cite class="text-gray-900 font-semibold not-italic">— David Chen, Operations Manager, FleetLogix Inc.</cite>
+                    </blockquote>
+                    <blockquote class="bg-white p-6 rounded-lg shadow-lg">
+                        <p class="text-gray-700 mb-4 italic">"We needed a reliable asset tracker for our construction clients. The AT1000's battery life is incredible, and our clients love the rugged design. The support from the GPS Zone team during integration was top-notch."</p>
+                        <cite class="text-gray-900 font-semibold not-italic">— Maria Rodriguez, CEO, SecureSite Solutions</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA / Contact Form -->
+        <section id="contact" class="py-16 bg-gps-blue">
+            <div class="container mx-auto px-6">
+                <div class="max-w-2xl mx-auto text-center text-white">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Scale Your GPS Service Business?</h2>
+                    <p class="text-xl mb-8 text-blue-100">Get in touch with our wholesale team today for a personalized quote and a <strong>free device sample</strong> to test for yourself.</p>
+                    
+                    <div id="form-success" class="hidden mb-6 p-4 bg-green-500 text-white rounded-lg">
+                        Thank you for your request! We will be in touch shortly.
+                    </div>
+
+                    <form id="wholesale-form" class="bg-white rounded-lg shadow-xl p-8 text-left">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <input type="text" name="name" placeholder="Your Name*" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-gps-blue focus:border-transparent">
+                            <input type="text" name="company" placeholder="Company Name*" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-gps-blue focus:border-transparent">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <input type="email" name="email" placeholder="Work Email*" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-gps-blue focus:border-transparent">
+                            <input type="tel" name="phone" placeholder="Phone Number" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-gps-blue focus:border-transparent">
+                        </div>
+                        <textarea name="message" rows="4" placeholder="Tell us about your volume needs or the devices you're interested in..." class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-gps-blue focus:border-transparent mb-6"></textarea>
+                        <div class="text-center">
+                            <button type="submit" class="bg-green-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-600 transition transform hover:scale-105">Get My Free Quote & Sample</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gps-dark text-gray-400">
+        <div class="container mx-auto px-6 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">GPS Zone Wholesale</h3>
+                    <p>Your partner in telematics success.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Products</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Vehicle Trackers</a></li>
+                        <li><a href="#" class="hover:text-white">Asset Trackers</a></li>
+                        <li><a href="#" class="hover:text-white">Personal Trackers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Support</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Technical Docs</a></li>
+                        <li><a href="#" class="hover:text-white">Integration Guides</a></li>
+                        <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Contact</h4>
+                    <p class="text-sm">sales@gpszonewholesale.com</p>
+                    <p class="text-sm">+1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+                &copy; 2023 GPS Zone Wholesale. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        // Form Submission Handler
+        const form = document.getElementById('wholesale-form');
+        const successMessage = document.getElementById('form-success');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            // Here you would normally send the data to a server using fetch() or XMLHttpRequest
+            // For this example, we'll just show the success message
+            
+            // Simulate a network request
+            setTimeout(() => {
+                form.style.display = 'none';
+                successMessage.classList.remove('hidden');
+                successMessage.scrollIntoView({ behavior: 'smooth' });
+            }, 500);
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop GPS Catalog</title>
+   <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-50 text-gray-800">
+<!-- Header & Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/index.html" class="text-2xl font-bold text-gps-dark">GPS<span class="text-blue-600">Zone</span></a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="/products.html" class="text-gray-600 hover:text-blue-600 transition">Products</a>
+                <a href="#why-us" class="text-gray-600 hover:text-blue-600 transition">Why Us</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-blue-600 transition">Testimonials</a>
+                <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 transition">Get Quote</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-6 pt-2 pb-3 space-y-1">
+                <a href="/products.html" class="block py-2 text-gray-600 hover:text-blue-600">Products</a>
+                <a href="#why-us" class="block py-2 text-gray-600 hover:text-blue-600">Why Us</a>
+                <a href="#testimonials" class="block py-2 text-gray-600 hover:text-blue-600">Testimonials</a>
+                <a href="#contact" class="block py-2 text-blue-600 font-semibold">Get Quote</a>
+            </div>
+        </div>
+    </header>
+    <!-- Page Header -->
+    <section class="max-w-7xl mx-auto px-4 mt-10">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl font-bold">Shop GPS / Wired Products</h2>
+        <div class="flex items-center space-x-2">
+          <label for="sort" class="text-sm font-medium">Sort by:</label>
+          <select id="sort" class="border border-gray-300 text-sm rounded-md p-2">
+            <option value="default">Product Type</option>
+            <option value="name-asc">Name: A → Z</option>
+            <option value="name-desc">Name: Z → A</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
+      </div>
+      <p id="item-count" class="text-sm text-gray-500 mt-2"></p>
+    </section>
+
+    <!-- Product Grid -->
+    <section id="product-grid" class="max-w-7xl mx-auto px-4 py-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <!-- Products will be inserted here dynamically -->
+    </section>
+
+    <!-- Modal -->
+    <div id="details-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-50 p-4">
+      <div class="bg-white rounded-xl max-w-2xl w-full shadow-xl overflow-auto max-h-[90vh]">
+        <div class="p-6">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 id="modal-title" class="text-xl font-bold"></h3>
+              <p id="modal-sub" class="text-sm text-gray-600 mt-1"></p>
+            </div>
+            <button id="modal-close" class="text-gray-500 hover:text-gray-800">Close ✕</button>
+          </div>
+
+          <div class="mt-4 grid gap-4 md:grid-cols-2">
+            <div>
+              <img id="modal-image" src="https://via.placeholder.com/600x400?text=GPS+Device" alt="device image" class="w-full rounded-lg object-cover" />
+            </div>
+            <div>
+              <h4 class="font-semibold mt-0">Key Features</h4>
+              <ul id="modal-features" class="list-disc ml-5 text-sm text-gray-700 mt-2"></ul>
+
+              <div class="mt-4">
+                <p class="text-sm text-gray-600"><strong>Price:</strong> <span id="modal-price" class="text-blue-600 font-semibold"></span></p>
+                <p class="text-sm text-gray-500 line-through" id="modal-oldprice"></p>
+              </div>
+
+              <div class="mt-6 flex space-x-3">
+                <!-- <button id="modal-add" class="bg-gray-900 text-white px-4 py-2 text-sm rounded-md hover:bg-gray-800">Add to Bag</button> -->
+                <a id="modal-morelink" class="text-sm text-blue-600 underline self-center" href="#" target="_blank">Open product page</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <h4 class="font-semibold">Full Description</h4>
+            <p id="modal-desc" class="text-sm text-gray-700 mt-2"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-black text-gray-400">
+        <div class="container mx-auto px-6 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">GPS Zone Wholesale</h3>
+                    <p>Your partner in telematics success.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Products</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Vehicle Trackers</a></li>
+                        <li><a href="#" class="hover:text-white">Asset Trackers</a></li>
+                        <li><a href="#" class="hover:text-white">Personal Trackers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Support</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Technical Docs</a></li>
+                        <li><a href="#" class="hover:text-white">Integration Guides</a></li>
+                        <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Contact</h4>
+                    <p class="text-sm">sales@gpszonewholesale.com</p>
+                    <p class="text-sm">+1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+                &copy; 2023 GPS Zone Wholesale. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        // Form Submission Handler
+        const form = document.getElementById('wholesale-form');
+        const successMessage = document.getElementById('form-success');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            // Here you would normally send the data to a server using fetch() or XMLHttpRequest
+            // For this example, we'll just show the success message
+            
+            // Simulate a network request
+            setTimeout(() => {
+                form.style.display = 'none';
+                successMessage.classList.remove('hidden');
+                successMessage.scrollIntoView({ behavior: 'smooth' });
+            }, 500);
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
+        });
+    </script>
+
+    <script>
+      // Product data (36 products from your uploaded PDF; features/descriptions taken from PDF). Source: uploaded PDF. :contentReference[oaicite:1]{index=1}
+      const productList = [
+        { name: "EV02", description: "Real-time tracking; ACC detection; Geo-fence; Tamper (G-sensor); Remote cut-off.", features: ["Real-time Tracking","ACC detection","Geo-fence","Tamper (G-sensor)","Remote cut-off"], price: 49, oldPrice: 59, image: "https://via.placeholder.com/300x300?text=EV02" },
+        { name: "V7", description: "Up port battery voltage detection; Over-speed alarm; GPS+LBS positioning.", features: ["Battery voltage detection","Over-speed alarm","GPS+LBS positioning","Low current consumption"], price: 52, oldPrice: 65, image: "https://via.placeholder.com/300x300?text=V7" },
+        { name: "V5", description: "Waterproof IP67; Trace playback; Mileage report.", features: ["IP67 Waterproof","Trace Playback","Mileage Report","Remotely Cut-off"], price: 55, oldPrice: 69, image: "https://via.placeholder.com/300x300?text=V5" },
+
+        { name: "VT05C", description: "Power-off alarm; Overspeed alarm; ACC ignition detection.", features: ["Power Off Alarm","Overspeed Alarm","ACC detection","Geo-fence Alarm"], price: 39, oldPrice: 49, image: "https://via.placeholder.com/300x300?text=VT05C" },
+        { name: "ET300", description: "GPS+LBS dual locating; Angle data uploads; Built-in battery.", features: ["GPS+LBS Dual Locating","Angle data uploads","Built-in Battery","Multiple Alarms"], price: 45, oldPrice: 55, image: "https://via.placeholder.com/300x300?text=ET300" },
+        { name: "AT01", description: "Tamper alarm (G-sensor); Internal memory support; Low current consumption.", features: ["Tamper alarm (G-sensor)","Internal memory (2000)","Low current consumption","Geo-fence"], price: 47, oldPrice: 57, image: "https://via.placeholder.com/300x300?text=AT01" },
+
+        { name: "G17", description: "SOS emergency; Vibration alarm; ACC detection.", features: ["Real-Time Tracking","SOS Emergency","Vibration Alarm","ACC detection"], price: 35, oldPrice: 42, image: "https://via.placeholder.com/300x300?text=G17" },
+        { name: "G18", description: "Voice monitor; Waterproof IP67; Tracked by SMS, APP, WEB.", features: ["Voice Monitor","Waterproof IP67","Tracked by SMS/APP/WEB","ACC detection"], price: 36, oldPrice: 44, image: "https://via.placeholder.com/300x300?text=G18" },
+        { name: "G19", description: "Mini size; History playback; Engine cut off; Geo-fence.", features: ["History playback","Engine cut off","Mini size","Geo-Fence"], price: 38, oldPrice: 48, image: "https://via.placeholder.com/300x300?text=G19" },
+
+        { name: "MT100", description: "OBD GPS tracker; Bluetooth configuration; OTA upgrade.", features: ["OBD GPS Tracker","Bluetooth Configuration","OTA Upgrade","G-Sensor"], price: 69, oldPrice: 85, image: "https://via.placeholder.com/300x300?text=MT100" },
+        { name: "MT150", description: "Fuel monitoring; Remote fuel cut-off; Support 9-100V vehicles.", features: ["Fuel Monitoring","Power & Fuel Cut Off","Support 9-100V","Geo-fence Alarm"], price: 75, oldPrice: 92, image: "https://via.placeholder.com/300x300?text=MT150" },
+        { name: "MT200", description: "History playback; LBS & AGPS; Mileage statistics.", features: ["History Playback","LBS & AGPS","Mileage Statistics","Bluetooth Config"], price: 79, oldPrice: 99, image: "https://via.placeholder.com/300x300?text=MT200" },
+
+        { name: "G19S", description: "Support fuel detection; Voice monitor; Angle data upload while no GSM.", features: ["Fuel Detection Support","Voice Monitor","Angle Data Upload","Multiple Alarms"], price: 42, oldPrice: 54, image: "https://via.placeholder.com/300x300?text=G19S" },
+        { name: "BW09", description: "AC/Door detection; Disassemble alarm; Multiple alarms.", features: ["AC/Door Detection","Disassemble Alarm","Vibration Alarm","Remotely Cut-off"], price: 33, oldPrice: 40, image: "https://via.placeholder.com/300x300?text=BW09" },
+        { name: "GS03", description: "Trace playback; Movement alarm; SOS emergency.", features: ["Trace Playback","Movement Alarm","SOS Emergency","Cut-wire Alarm"], price: 34, oldPrice: 43, image: "https://via.placeholder.com/300x300?text=GS03" },
+
+        { name: "VT08S", description: "IP65 dust & water proof; Fast positioning; Vehicle battery protection.", features: ["IP65 Rating","Fast Positioning","ACC Ignition detection","Vehicle battery protection"], price: 44, oldPrice: 55, image: "https://via.placeholder.com/300x300?text=VT08S" },
+        { name: "BW08", description: "Geo-fence alarm; Intelligent power management; Anti-theft alert.", features: ["Geo-fence Alarm","Intelligent power management","Anti-theft Alert","SOS Emergency"], price: 32, oldPrice: 39, image: "https://via.placeholder.com/300x300?text=BW08" },
+        { name: "RP01", description: "Configurable tracking modes; Anti-theft alert; Multiple alarms.", features: ["Configurable tracking modes","Anti-theft Alert","Multiple Alarms","SOS Emergency"], price: 37, oldPrice: 46, image: "https://via.placeholder.com/300x300?text=RP01" },
+
+        { name: "WE TRACK 140", description: "Over-speeding detection; Jamming detection; Accelerometer sensors.", features: ["OverSpeeding detection","Jamming detection","Accelerometer Sensors","Auto/Manual Geofence"], price: 95, oldPrice: 120, image: "https://via.placeholder.com/300x300?text=WE+TRACK+140" },
+        { name: "140 GPS TRACKER", description: "Multi-slot GPRS; Built-in power backup (170mAh); Crash detection.", features: ["GPRS Multi-Slot","170mAh Backup","Crash detection","Towing detection"], price: 89, oldPrice: 110, image: "https://via.placeholder.com/300x300?text=140+GPS" },
+        { name: "WP 30L", description: "Analog input for checking fuel; Multi-platform (web/SMS/app).", features: ["Analog input (fuel)","Multi Platform Support","Power backup","Multiple I/O"], price: 82, oldPrice: 99, image: "https://via.placeholder.com/300x300?text=WP+30L" },
+
+        { name: "GAGAN01", description: "Working voltage 8V-39V; High GPS sensitivity; Internal battery 650mAh.", features: ["8V-39V Operating Voltage","High GPS sensitivity","Internal 650mAh battery","Multiple Alarms"], price: 98, oldPrice: 125, image: "https://via.placeholder.com/300x300?text=GAGAN01" },
+        { name: "ATLANTA GENIUS", description: "Trace playback; Fleet maintenance; Sleep mode; Internal 250mAh battery.", features: ["Trace Playback","Fleet Maintenance","Sleep Mode","250mAh Internal Battery"], price: 72, oldPrice: 89, image: "https://via.placeholder.com/300x300?text=ATLANTA+GENIUS" },
+        { name: "ATLANTA E-101", description: "Ignition sense; Remote immobilization; Voltage surge protection.", features: ["Ignition Sense","Remote Immobilization","Voltage Surge Protection","FOTA Upgradation"], price: 78, oldPrice: 99, image: "https://via.placeholder.com/300x300?text=E-101" },
+
+        { name: "ATLANTA LC-100", description: "High gain GPS/GSM antenna; SOS enabled; Remote data logging.", features: ["High gain GPS/GSM","SOS Enabled","Remote Data Logging","High Accuracy Motion Sensor"], price: 74, oldPrice: 92, image: "https://via.placeholder.com/300x300?text=LC-100" },
+        { name: "ATLANTA L-100", description: "Multiple I/O’s; Bluetooth enabled; Fuel tracking; 1-wire interface.", features: ["Multiple I/O","Bluetooth Enabled","Fuel Tracking","1-Wire Interface"], price: 80, oldPrice: 100, image: "https://via.placeholder.com/300x300?text=L-100" },
+        { name: "WP-30C", description: "Remote data logging when no GSM; Protection vs voltage spikes; Two-way communication.", features: ["Remote Logging (no GSM)","Voltage Spike Protection","Two-way Communication","Small Size"], price: 68, oldPrice: 84, image: "https://via.placeholder.com/300x300?text=WP-30C" },
+
+        { name: "ATLANTA TC-100", description: "Panic / SOS button; High accuracy motion sensor; Remote data logging.", features: ["Panic/SOS Button","High Accuracy Motion Sensor","Remote Data Logging","Small Size"], price: 70, oldPrice: 86, image: "https://via.placeholder.com/300x300?text=TC-100" },
+        { name: "TS101 BASIC", description: "IP65; Motion sensor; 40000 tracking records; Voice monitoring.", features: ["IP65 Rating","Motion Sensor","40000 Records Storage","Voice Monitoring"], price: 99, oldPrice: 129, image: "https://via.placeholder.com/300x300?text=TS101+BASIC" },
+        { name: "TS101 ADVANCE", description: "AIS 140 certification; All-parameter config via SMS & USB; 40000 records.", features: ["AIS 140 Certified","SMS/USB Configuration","40000 Records","IP65"], price: 119, oldPrice: 149, image: "https://via.placeholder.com/300x300?text=TS101+ADV" },
+
+        { name: "BHARAT101", description: "Data storage capacity; IP65 waterproof; Accelerometer & gyroscope.", features: ["IP65 Waterproof","6000+ Data Storage","Accelerometer & Gyro","Main Battery Removal Alert"], price: 110, oldPrice: 139, image: "https://via.placeholder.com/300x300?text=BHARAT101" },
+        { name: "TELTONIKA FMB920", description: "Real-time tracking; trace playback; extensive remote monitoring.", features: ["Real-time Tracking","Trace Playback","Extensive Remote Monitoring","Crash Trace Data"], price: 130, oldPrice: 159, image: "https://via.placeholder.com/300x300?text=FMB920" },
+        { name: "TELTONIKA FMB910", description: "Ultra-low 1 mA consumption; dust/water protection; prolonged use scenarios.", features: ["Ultra-low 1 mA Consumption","Dust & Water Protection","Prolonged Use","Trace Playback"], price: 125, oldPrice: 155, image: "https://via.placeholder.com/300x300?text=FMB910" },
+
+        { name: "TELTONIKA FMB965", description: "Detailed crash trace; eco driving scenarios; extended monitoring possibilities.", features: ["Crash Trace Data","Eco Driving Scenarios","Extended Monitoring","Trace Playback"], price: 135, oldPrice: 165, image: "https://via.placeholder.com/300x300?text=FMB965" },
+        { name: "TELTONIKA FMB110", description: "Fuel monitoring; low roaming cost; accurate fuel control.", features: ["Fuel Monitoring","Lower Roaming Costs","Accurate Fuel Control","Trace Playback"], price: 115, oldPrice: 140, image: "https://via.placeholder.com/300x300?text=FMB110" },
+        { name: "TELTONIKA FMB120", description: "Temperature monitoring; extended usage scenarios; remote monitoring.", features: ["Temperature Monitoring","Extended Usage Scenarios","Remote Monitoring","Trace Playback"], price: 118, oldPrice: 145, image: "https://via.placeholder.com/300x300?text=FMB120" }
+      ];
+
+      document.getElementById("item-count").textContent = `${productList.length} Items`;
+      const productGrid = document.getElementById("product-grid");
+
+      function renderProducts(list) {
+        productGrid.innerHTML = "";
+        list.forEach((p, idx) => {
+          const productCard = document.createElement("div");
+          productCard.className = "bg-white rounded-xl shadow hover:shadow-lg transition p-4 relative flex flex-col";
+          const discount = p.oldPrice && p.oldPrice > p.price ? Math.round(((p.oldPrice - p.price) / p.oldPrice) * 100) : 0;
+
+          productCard.innerHTML = `
+            <span class="absolute top-3 right-3 ${discount ? "bg-blue-600" : "bg-green-600"} text-white text-xs font-bold px-2 py-1 rounded">${discount ? discount + "% Off" : "New"}</span>
+            <img src="${p.image}" alt="${p.name}" class="rounded-lg w-full mb-3 object-cover h-48" />
+            <p class="text-sm text-gray-600">${p.features.slice(0,2).join(" · ")}</p>
+            <h3 class="font-semibold text-gray-800 mt-2">${p.name}</h3>
+            <p class="text-gray-500 text-sm mb-3">${p.description}</p>
+            <div class="mt-auto flex items-center justify-between">
+              <div>
+                <span class="text-blue-600 font-semibold">$${p.price.toFixed(2)}</span>
+                ${discount ? `<span class="line-through text-gray-400 text-sm ml-2">$${p.oldPrice.toFixed(2)}</span>` : ""}
+              </div>
+              <div class="flex space-x-2">
+                <!-- <button class="add-btn bg-gray-900 text-white px-3 py-2 text-xs rounded-md hover:bg-gray-800">Add to Bag</button> -->
+                <button class="details-btn border border-gray-300 px-3 py-2 text-xs rounded-md hover:bg-gray-50" data-index="${idx}">View Details</button>
+              </div>
+            </div>
+          `;
+          productGrid.appendChild(productCard);
+        });
+
+        document.querySelectorAll(".details-btn").forEach(btn => {
+          btn.addEventListener("click", e => openModal(e.target.dataset.index));
+        });
+      }
+
+      renderProducts(productList);
+
+      const modal = document.getElementById("details-modal");
+      const modalTitle = document.getElementById("modal-title");
+      const modalImage = document.getElementById("modal-image");
+      const modalFeatures = document.getElementById("modal-features");
+      const modalDesc = document.getElementById("modal-desc");
+      const modalPrice = document.getElementById("modal-price");
+      const modalOld = document.getElementById("modal-oldprice");
+      const modalMoreLink = document.getElementById("modal-morelink");
+      const modalClose = document.getElementById("modal-close");
+
+      function openModal(index) {
+        const p = productList[index];
+        modalTitle.textContent = p.name;
+        modalImage.src = p.image;
+        modalDesc.textContent = p.description + " — " + p.features.join("; ");
+        modalPrice.textContent = `$${p.price.toFixed(2)}`;
+        modalOld.textContent = p.oldPrice && p.oldPrice > p.price ? `$${p.oldPrice.toFixed(2)}` : "";
+        modalFeatures.innerHTML = "";
+        p.features.forEach(f => {
+          const li = document.createElement("li");
+          li.textContent = f;
+          modalFeatures.appendChild(li);
+        });
+        modalMoreLink.href = "#";
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        document.body.style.overflow = "";
+      }
+
+      modalClose.addEventListener("click", closeModal);
+      modal.addEventListener("click", e => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.getElementById("sort").addEventListener("change", e => {
+        const val = e.target.value;
+        let sorted = [...productList];
+        if (val === "name-asc") sorted.sort((a,b)=> a.name.localeCompare(b.name));
+        else if (val === "name-desc") sorted.sort((a,b)=> b.name.localeCompare(a.name));
+        else if (val === "newest") sorted.reverse();
+        renderProducts(sorted);
+      });
+    </script>
+  </body>
+</html>
