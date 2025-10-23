@@ -249,8 +249,8 @@
             <p class="text-gray-500 text-sm mb-3">${p.description}</p>
             <div class="mt-auto flex items-center justify-between">
               <div>
-                <span class="text-blue-600 font-semibold">$${p.price.toFixed(2)}</span>
-                ${discount ? `<span class="line-through text-gray-400 text-sm ml-2">$${p.oldPrice.toFixed(2)}</span>` : ""}
+                <span class="text-blue-600 font-semibold">₹${p.price.toFixed(2)}</span>
+                ${discount ? `<span class="line-through text-gray-400 text-sm ml-2">₹${p.oldPrice.toFixed(2)}</span>` : ""}
               </div>
               <div class="flex space-x-2">
                 <!-- <button class="add-btn bg-gray-900 text-white px-3 py-2 text-xs rounded-md hover:bg-gray-800">Add to Bag</button> -->
@@ -283,8 +283,8 @@
         modalTitle.textContent = p.name;
         modalImage.src = p.image;
         modalDesc.textContent = p.description + " — " + p.features.join("; ");
-        modalPrice.textContent = `$${p.price.toFixed(2)}`;
-        modalOld.textContent = p.oldPrice && p.oldPrice > p.price ? `$${p.oldPrice.toFixed(2)}` : "";
+        modalPrice.textContent = `₹${p.price.toFixed(2)}`;
+        modalOld.textContent = p.oldPrice && p.oldPrice > p.price ? `₹${p.oldPrice.toFixed(2)}` : "";
         modalFeatures.innerHTML = "";
         p.features.forEach(f => {
           const li = document.createElement("li");
